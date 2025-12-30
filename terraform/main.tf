@@ -5,7 +5,7 @@
 
 resource "google_compute_instance" "k3s_vm" {
   name         = "k3s-gitops-node"
-  machine_type = "e2-micro" # Free Tier
+  machine_type = "e2-medium"
   zone         = "${var.gcp_region}-a"
 
   metadata = {
@@ -44,4 +44,17 @@ resource "google_compute_firewall" "allow-http" {
 
   source_ranges = ["0.0.0.0/0"]
   target_tags   = ["http-server"]
+}
+
+resource "google_compute_firewall" "allow-nodeport" {
+  name    = "allow-nodeport"
+  network = "default"
+
+  allow {
+    protocol = "tcp"
+    ports    = ["30080"]
+  }
+
+  source_ranges = ["0.0.0.0/0"]
+  target_tags   = ["http-server"] # This matches the tag on your VM
 }
