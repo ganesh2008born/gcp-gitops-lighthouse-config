@@ -10,10 +10,10 @@ spec:
   template:
     metadata:
       labels:
-        app: web 
-      spec:
-        containers:
-        - name: nginx
-          image: nginx:alpine
-          ports:
-          - containerPort: 80
+        app: web
+    spec:
+      containers:        
+      - name: nginx
+        image: nginx:alpine
+        ports:
+        - containerPort: 80
