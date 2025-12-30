@@ -1,0 +1,201 @@
+# terraform show
+
+
+# google_compute_firewall.allow-http:
+resource "google_compute_firewall" "allow-http" {
+    creation_timestamp      = "2025-12-30T09:23:05.484-08:00"
+    description             = null
+    destination_ranges      = []
+    direction               = "INGRESS"
+    disabled                = false
+    id                      = "projects/project-ce2811ca-f6d4-4767-842/global/firewalls/allow-http"
+    name                    = "allow-http"
+    network                 = "https://www.googleapis.com/compute/v1/projects/project-ce2811ca-f6d4-4767-842/global/networks/default"
+    priority                = 1000
+    project                 = "project-ce2811ca-f6d4-4767-842"
+    self_link               = "https://www.googleapis.com/compute/v1/projects/project-ce2811ca-f6d4-4767-842/global/firewalls/allow-http"
+    source_ranges           = [
+        "0.0.0.0/0",
+    ]
+    source_service_accounts = []
+    source_tags             = []
+    target_service_accounts = []
+    target_tags             = [
+        "http-server",
+    ]
+
+    allow {
+        ports    = [
+            "80",
+            "443",
+        ]
+        protocol = "tcp"
+    }
+}
+
+# google_compute_firewall.allow-nodeport:
+resource "google_compute_firewall" "allow-nodeport" {
+    creation_timestamp = "2025-12-30T09:41:49.445-08:00"
+    description        = null
+    destination_ranges = []
+    direction          = "INGRESS"
+    disabled           = false
+    id                 = "projects/project-ce2811ca-f6d4-4767-842/global/firewalls/allow-nodeport"
+    name               = "allow-nodeport"
+    network            = "https://www.googleapis.com/compute/v1/projects/project-ce2811ca-f6d4-4767-842/global/networks/default"
+    priority           = 1000
+    project            = "project-ce2811ca-f6d4-4767-842"
+    self_link          = "https://www.googleapis.com/compute/v1/projects/project-ce2811ca-f6d4-4767-842/global/firewalls/allow-nodeport"
+    source_ranges      = [
+        "0.0.0.0/0",
+    ]
+    target_tags        = [
+        "http-server",
+    ]
+
+    allow {
+        ports    = [
+            "30080",
+        ]
+        protocol = "tcp"
+    }
+}
+
+# google_compute_instance.k3s_vm:
+resource "google_compute_instance" "k3s_vm" {
+    can_ip_forward             = false
+    cpu_platform               = "Intel Broadwell"
+    creation_timestamp         = "2025-12-30T09:23:06.494-08:00"
+    current_status             = "RUNNING"
+    deletion_protection        = false
+    description                = null
+    effective_labels           = {
+        "goog-terraform-provisioned" = "true"
+    }
+    enable_display             = false
+    hostname                   = null
+    id                         = "projects/project-ce2811ca-f6d4-4767-842/zones/us-west1-a/instances/k3s-gitops-node"
+    instance_id                = "6623376173847655573"
+    key_revocation_action_type = null
+    label_fingerprint          = "vezUS-42LLM="
+    labels                     = {}
+    machine_type               = "e2-medium"
+    metadata                   = {
+        "ssh-keys" = <<-EOT
+            vicram:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC0ciV8q/YjVPKT0agrWqfE/7qfd6c8ubbwuMmR6d34XP28yAbrw1G83LqrUnkJ/6KHoGDQrf14fXjqO9/nBb36J1k9mXzapNgpw/yw1KIuIA9LFUJyAGEUnkvtq4/bxuNT6aLzGtZbX3TEwJMpTwySjZYiKM9G0wQuEAphlRD7ptjYfuKjhpBnwM9DKHohlYa4m0Ywc7rQ1M7w/grFIlsSnku7PumEunXTxm93tLwfDJYEWA3rS0c1RcxSf2uoE4Kay55iL3HafIsd+Ik1sja9qAjqsFVh0Wdb0J4bLeAZKpB6v00IjVFH2VXN3rfdvgDQQbtMOjEjQypSqNc2sY5mcQipS5UM9hpzN0MIq9qrXTOeSCqh2T+gV+B6zU2eojJK/XQ3WBvQZoaUllWgxl22f4JxapqFBbt76uW7kKDKlf62nuMEpXU4ct6MZpuXp8mQ1/jNVdqH1STTVuzmY3Eb9XQqrIJf4zoIyt1GaFVRzWTPoYc2Wj9QlFwwhyziD3hKIN9tLF4siN0zyh/HuG69WwXm3iX8P7IZ/JzDFlgqYMMsXDCqAu3jL+4pQM8JgCIyZ5YpqC/w0MsqEghdmRx5C3Q5h9PY0p8JK8TRUzk2fEf6VYWV/oPvWFnJZZlh2kvHiJmUrBKnhYv75KqNtNQZIBAPpWTZ1FRAUtX/OnnrOw== vicram@MacBookAir
+        EOT
+    }
+    metadata_fingerprint       = "w958FczbReM="
+    metadata_startup_script    = <<-EOT
+        #!/bin/bash
+
+        #Update the OS
+        apt-get update && apt-get upgrade -y
+
+        #Install K3s with optimization for 1gb RAM
+        #Disable Traefik (ingress) and local-storage for save memory
+        curl -sfL https://get.k3s.io | sh -s - \
+          --disable traefik \
+          --disable servicelb \
+          --disable local-storage \
+          --write-kubeconfig-mode 664
+    EOT
+    min_cpu_platform           = null
+    name                       = "k3s-gitops-node"
+    project                    = "project-ce2811ca-f6d4-4767-842"
+    resource_policies          = []
+    self_link                  = "https://www.googleapis.com/compute/v1/projects/project-ce2811ca-f6d4-4767-842/zones/us-west1-a/instances/k3s-gitops-node"
+    tags                       = [
+        "http-server",
+        "https-server",
+    ]
+    tags_fingerprint           = "6smc4R4d39I="
+    terraform_labels           = {
+        "goog-terraform-provisioned" = "true"
+    }
+    zone                       = "us-west1-a"
+
+    boot_disk {
+        auto_delete                     = true
+        device_name                     = "persistent-disk-0"
+        disk_encryption_key_raw         = (sensitive value)
+        disk_encryption_key_rsa         = (sensitive value)
+        disk_encryption_key_sha256      = null
+        disk_encryption_service_account = null
+        force_attach                    = false
+        guest_os_features               = [
+            "VIRTIO_SCSI_MULTIQUEUE",
+            "SEV_CAPABLE",
+            "SEV_SNP_CAPABLE",
+            "SEV_LIVE_MIGRATABLE",
+            "SEV_LIVE_MIGRATABLE_V2",
+            "IDPF",
+            "TDX_CAPABLE",
+            "UEFI_COMPATIBLE",
+            "GVNIC",
+        ]
+        interface                       = null
+        kms_key_self_link               = null
+        mode                            = "READ_WRITE"
+        source                          = "https://www.googleapis.com/compute/v1/projects/project-ce2811ca-f6d4-4767-842/zones/us-west1-a/disks/k3s-gitops-node"
+
+        initialize_params {
+            architecture                = "X86_64"
+            enable_confidential_compute = false
+            image                       = "https://www.googleapis.com/compute/v1/projects/ubuntu-os-cloud/global/images/ubuntu-2204-jammy-v20251218"
+            labels                      = {}
+            provisioned_iops            = 0
+            provisioned_throughput      = 0
+            resource_manager_tags       = {}
+            resource_policies           = []
+            size                        = 10
+            snapshot                    = null
+            storage_pool                = null
+            type                        = "pd-standard"
+        }
+    }
+
+    network_interface {
+        internal_ipv6_prefix_length = 0
+        ipv6_access_type            = null
+        ipv6_address                = null
+        name                        = "nic0"
+        network                     = "https://www.googleapis.com/compute/v1/projects/project-ce2811ca-f6d4-4767-842/global/networks/default"
+        network_attachment          = null
+        network_ip                  = "10.138.0.3"
+        nic_type                    = null
+        queue_count                 = 0
+        stack_type                  = "IPV4_ONLY"
+        subnetwork                  = "https://www.googleapis.com/compute/v1/projects/project-ce2811ca-f6d4-4767-842/regions/us-west1/subnetworks/default"
+        subnetwork_project          = "project-ce2811ca-f6d4-4767-842"
+
+        access_config {
+            nat_ip                 = "35.230.49.201"
+            network_tier           = "PREMIUM"
+            public_ptr_domain_name = null
+        }
+    }
+
+    scheduling {
+        automatic_restart           = true
+        availability_domain         = 0
+        instance_termination_action = null
+        min_node_cpus               = 0
+        on_host_maintenance         = "MIGRATE"
+        preemptible                 = false
+        provisioning_model          = "STANDARD"
+        termination_time            = null
+    }
+
+    shielded_instance_config {
+        enable_integrity_monitoring = true
+        enable_secure_boot          = false
+        enable_vtpm                 = true
+    }
+}
+
+
+Outputs:
+
+vm_internal_ip = "10.138.0.3"
+vm_public_ip = "35.230.49.201"
